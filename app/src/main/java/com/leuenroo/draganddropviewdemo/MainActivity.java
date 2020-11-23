@@ -34,10 +34,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_input2).setOnDragListener(mEndDrg);
         findViewById(R.id.btn_input3).setOnDragListener(mEndDrg);
         findViewById(R.id.btn_input4).setOnDragListener(mEndDrg);
-
-
     }
-
 
     private class MyStrtDrggngLstnr implements View.OnLongClickListener{
 
@@ -46,14 +43,11 @@ public class MainActivity extends AppCompatActivity {
             WithDragShadow shadow= new WithDragShadow(v);
             ClipData data= ClipData.newPlainText("","");;
             v.startDrag(data,shadow,v,0);
-
             return false;
         }
     }
 
     private class MyEndDrgLstnr implements View.OnDragListener{
-
-
         @Override
         public boolean onDrag(View v, DragEvent event) {
 
@@ -61,23 +55,16 @@ public class MainActivity extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     v.setBackground(((Button)event.getLocalState()).getBackground());
                 }
-
             }
-
             return true;
         }
     }
 
     private class WithDragShadow extends View.DragShadowBuilder{
 
-        public WithDragShadow(View v){
-            super(v);
-        }
+        public WithDragShadow(View v){ super(v);  }
 
-        @Override
-        public void onDrawShadow(Canvas canvas) {
-            super.onDrawShadow(canvas);
-        }
+        @Override public void onDrawShadow(Canvas canvas) { super.onDrawShadow(canvas);}
 
         @Override
         public void onProvideShadowMetrics(Point outShadowSize, Point outShadowTouchPoint) {
